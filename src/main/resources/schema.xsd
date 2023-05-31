@@ -1,0 +1,32 @@
+<?xml version = "1.0"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="/jaxb/gen"
+        xmlns:userns="/jaxb/gen"
+        elementFormDefault="qualified">
+
+    <!--<element name="Request" type="userns:Request"/>-->
+    <element name="Transaction" type="userns:Transaction"/>
+    <element name="Response" type="userns:Response"/>
+    <complexType name="Transaction">
+        <sequence>
+            <element name="transaction_type" type="string"/>
+            <element name="amount" type="int"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Response">
+        <sequence>
+            <element name="status">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="ERROR"/>
+                        <enumeration value="SUCCESS"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="message" type="string"/>
+        </sequence>
+    </complexType>
+
+</schema>
